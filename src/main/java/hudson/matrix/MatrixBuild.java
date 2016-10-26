@@ -265,13 +265,14 @@ public class MatrixBuild extends AbstractBuild<MatrixProject,MatrixBuild> {
      * @since 1.481 
      */
     public boolean isLinkedBy(MatrixBuild b) {
-    	if(null == b)
+        // Seriously(Tommi) - DON'T force-keep builds. default behaviour is to tag previous build to depend on next build, which is insane and unnecessary
+    	/*if(null == b)
     		return false;
     	for(MatrixConfiguration c : b.getParent().getActiveConfigurations()) {
             MatrixRun r = c.getNearestOldBuild(b.getNumber());
             if (r != null && r.getNumber()==getNumber())
                 return true;
-        }
+        }*/
         return false;
     }
     
